@@ -88,3 +88,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Після старту контейнера перший раз, додати мережу для роботи про що буде повідомлення
+## Це дозволяє сервісам, що працюють у вашому контейнері, використовувати цю зовнішню мережу для зв'язку з іншими сервісами або ##зовнішніми ресурсами.
+## Коли в вашому docker-compose.yml файлі використовується external: true для мережі, це означає, що Docker Compose очікує, що ##мережа з такою назвою (в даному випадку 'monitoring') вже існує, створена окремо.
+docker network create monitoring
