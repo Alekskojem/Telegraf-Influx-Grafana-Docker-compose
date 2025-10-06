@@ -41,7 +41,7 @@ services:
     ports:
       - '8080:80'  # Expose Nginx on port 8080
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"] # Health check for Nginx
       interval: 10s
       timeout: 5s
       retries: 2
@@ -53,9 +53,9 @@ services:
     container_name: influxdb
     restart: always
     environment:
-      - INFLUXDB_DB=influx
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin
+      - INFLUXDB_DB=influx # Default database name
+      - INFLUXDB_ADMIN_USER=admin # Admin username
+      - INFLUXDB_ADMIN_PASSWORD=admin # Admin password
     ports:
       - '8086:8086'  # Expose InfluxDB on port 8086
     volumes:
@@ -86,5 +86,5 @@ volumes:
   influxdb_data: {}  # Volume for InfluxDB data
 
 networks:
-  monitoring:
+  monitoring: # network for monitoring stack
     external: true  # Use an external network named 'monitoring'
